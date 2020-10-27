@@ -1,6 +1,9 @@
 from random import randint
 from itertools import cycle
-import unittest
+
+
+class InputException(Exception):
+    pass
 
 
 class TicTacGame:
@@ -11,10 +14,10 @@ class TicTacGame:
         """
         Initialize class.
 
-        pc_player - mode of game (human vs. human/human vs. computer)
+        pc_player - mode of game (human vs. human/human vs. computer)\n
         human_first - order of play (is relevant only when playing human vs. \
-            computer)
-        difiiculty - difficulty level (either 0 or 1, is relevant only when \
+            computer)\n
+        difficulty - difficulty level (either 0 or 1, is relevant only when \
             playing human vs. computer)
         """
         self.player_pc = pc_player
@@ -38,17 +41,16 @@ class TicTacGame:
         elif user_input.split()[0] == "move":
             try:
                 _, x, y = user_input.split()
-                x = int(x)
-                y = int(y)
 
-                if not (0 <= x <= 2 and 0 <= y <= 2):
-                    raise ValueError("Wrong user input!")
+                if not (x.isdigit() and y.isdigit() and
+                        1 <= int(x) <= 3 and 1 <= int(y) <= 3):
+                    raise InputException("Wrong coordinates!")
             except ValueError:
-                raise ValueError("Wrong user input!")
+                raise InputException("Wrong coordinates!")
             else:
                 return True
 
-        raise ValueError("Wrong user input!")
+        raise InputException("Wrong user input!")
 
     def get_user_input(self):
         """Get user input."""
@@ -56,15 +58,32 @@ class TicTacGame:
             try:
                 user_input = input(" >> ")
                 self.validate_input(user_input)
-            except ValueError:
+            except InputException:
                 print("Wrong input! Try again")
+                continue
             else:
-                break
+                if user_input == "quit":
+                    exit(0)
+                elif user_input == "help":
+                    print("  Available commands:\n"
+                          "    help            - display this message\n"
+                          "    quit            - end current game session\n"
+                          "    show            - show corrunt playing board\n"
+                          "    move row column - make a move to "
+                          "row, column on board")
+                    continue
+                elif user_input == "show":
+                    self.show_board()
+                    continue
+                else:
+                    _, x, y = user_input.split()
+                    x, y = int(x) - 1, int(y) - 1
+                    if self.board[y][x] != " ":
+                        print("Square already taken!")
+                        continue
 
-        if user_input.split()[0] == "move":
-            user_input = list(map(int, user_input.split()[1:]))
-
-        return user_input
+                user_input = (x, y)
+                return user_input
 
     def get_pc_move(self):
         """Get computer move (is relevant only when playing human vs. \
@@ -92,27 +111,6 @@ class TicTacGame:
                 user_input = self.get_pc_move()
             else:
                 user_input = self.get_user_input()
-
-                while 1:
-                    if user_input == "quit":
-                        return
-                    elif user_input == "help":
-                        print("  Available commands:\n"
-                              "    help     - display this message\n"
-                              "    quit     - end current game session\n"
-                              "    show     - show corrunt playing board\n"
-                              "    move x y - make a move to position "
-                              "x, y on board")
-                    elif user_input == "show":
-                        self.show_board()
-                    else:
-                        x, y = user_input[0], user_input[1]
-                        if self.board[y][x] == " ":
-                            break
-                        else:
-                            print("Square already taken!")
-
-                    user_input = self.get_user_input()
 
             self.board[user_input[1]][user_input[0]] = player
             self.show_board()
@@ -182,67 +180,6 @@ class TicTacGame:
                     best, best_move = val, (x, y)
 
         return best, best_move
-
-
-class TicTacTestCase(unittest.TestCase):
-    """Test case for most important TicTacToe class methods."""
-
-    def setUp(self):
-        """Authomatic method setting up the game board."""
-        self.game = TicTacGame()
-
-    def test_validate_user_input(self):
-        """Test for 'validate_user_input' method."""
-        with self.assertRaises(ValueError):
-            self.game.validate_input("lalala")
-
-        self.assertTrue(self.game.validate_input("quit"))
-        self.assertTrue(self.game.validate_input("help"))
-        self.assertTrue(self.game.validate_input("show"))
-        self.assertTrue(self.game.validate_input(
-            f"move {randint(0, 2)} {randint(0, 2)}"
-            ))
-
-        with self.assertRaises(ValueError):
-            self.game.validate_input(f"move {randint(3, 10)} {randint(3, 10)}")
-
-    def test_check_winner(self):
-        """Test for 'check_winner' method."""
-        self.game.board[0][0] = "✕"
-        self.game.board[1][1] = "✕"
-        self.assertEqual(self.game.check_winner(), 0)
-
-        self.game.board[0][2] = "◯"
-        self.game.board[2][2] = "✕"
-        self.assertEqual(self.game.check_winner(), "✕")
-
-        self.game.board[1][1] = "◯"
-        self.game.board[2][0] = "◯"
-        self.assertEqual(self.game.check_winner(), "◯")
-
-        self.game.board[2][0] = "✕"
-        self.game.board[0][1] = "✕"
-        self.game.board[1][2] = "✕"
-        self.game.board[2][1] = "◯"
-        self.game.board[1][0] = "◯"
-        self.assertEqual(self.game.check_winner(), "tie")
-
-    def test_get_pc_move(self):
-        """Test for 'get_pc_move' method."""
-        self.player_pc = True
-        self.game.difficulty = 1
-        self.game.human_player = "◯"
-        self.assertEqual(self.game.get_pc_move(), (1, 1))
-
-        self.game.human_player = "✕"
-        self.game.board[1][1] = "✕"
-        self.assertEqual(self.game.get_pc_move(), (0, 0))
-
-        self.game.difficulty = 0
-        self.game.board[0][0] = "◯"
-        self.game.board[0][2] = "✕"
-        x, y = self.game.get_pc_move()
-        self.assertEqual(self.game.board[y][x], " ")
 
 
 if __name__ == "__main__":

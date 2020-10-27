@@ -10,7 +10,10 @@ class Node:
 
 
 class LRUCache:
-    def __init__(self, capacity: int = 10) -> None:
+    def __init__(self, capacity: int = 10):
+        if (capacity <= 0):
+            raise ValueError("Capacity must be greater than 0!")
+
         self.capacity = capacity
         self.table: dict = {}
         self.head: Optional[Node] = None
@@ -51,17 +54,16 @@ class LRUCache:
             self.head.value = value
         else:
             if len(self.table) == self.capacity:
-                if self.tail:
-                    if self.tail.prev:
-                        self.tail.prev.next = None
-                    else:
-                        self.head = None
+                if self.tail.prev:
+                    self.tail.prev.next = None
+                else:
+                    self.head = None
 
-                    cur = self.tail
-                    self.tail = cur.prev
+                cur = self.tail
+                self.tail = cur.prev
 
-                    self.table.pop(cur.key)
-                    del cur
+                self.table.pop(cur.key)
+                del cur
 
             cur = Node(key, value)
             self.table[key] = cur
@@ -106,11 +108,3 @@ class LRUCache:
             raise KeyError
 
         self.table.pop(key)
-
-
-if __name__ == "__main__":
-    cache = LRUCache(2)
-    cache.set('1', '1')
-    cache.set('2', '2')
-    cache.set('3', '3')
-    print(cache.get('1'))
