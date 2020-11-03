@@ -102,7 +102,10 @@ class MetaBaseCase(unittest.TestCase):
         self.Dogs.connector.check_db.assert_called_with('pets')
         self.Dogs.connector.check_table.assert_called_with('dogs', self.Dogs)
 
-class SimpleBaseCase(unittest.TestCase)
+
+class SimpleBaseCase(unittest.TestCase):
+    pass
+
 
 class IntegerCase(unittest.TestCase):
     def setUp(self):
