@@ -5,8 +5,8 @@ class Node:
     def __init__(self, key, value):
         self.key = key
         self.value = value
-        self.prev = None
-        self.next = None
+        self.prev: Optional[Node] = None
+        self.next: Optional[Node] = None
 
 
 class LRUCache:
@@ -52,29 +52,30 @@ class LRUCache:
         if key in self.table:
             self.get(key)
             self.head.value = value
-        else:
-            if len(self.table) == self.capacity:
-                if self.tail.prev:
-                    self.tail.prev.next = None
-                else:
-                    self.head = None
+            return
 
-                cur = self.tail
-                self.tail = cur.prev
+        if len(self.table) == self.capacity:
+            if self.tail.prev:
+                self.tail.prev.next = None
+            else:
+                self.head = None
 
-                self.table.pop(cur.key)
-                del cur
+            cur = self.tail
+            self.tail = cur.prev
 
-            cur = Node(key, value)
-            self.table[key] = cur
-            cur.next = self.head
+            self.table.pop(cur.key)
+            del cur
 
-            if self.head is not None:
-                self.head.prev = cur
-            elif self.head is None:
-                self.tail = cur
+        cur = Node(key, value)
+        self.table[key] = cur
+        cur.next = self.head
 
-            self.head = cur
+        if self.head is not None:
+            self.head.prev = cur
+        elif self.head is None:
+            self.tail = cur
+
+        self.head = cur
 
     def delete(self, key: str) -> None:
         if key == self.head.key:

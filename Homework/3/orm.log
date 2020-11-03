@@ -1,0 +1,66 @@
+[INFO] 2020-11-03 09:47:03,921 - Connected to database
+[INFO] 2020-11-03 09:47:03,922 - Switched to database 'pets'
+[INFO] 2020-11-03 09:47:03,924 - Made call 'SELECT * FROM dogs' to MySQL
+[ERROR] 2020-11-03 09:47:03,928 - Call 'la' to MySQL resulted in a failure!
+Traceback (most recent call last):
+  File "/home/alex/anaconda3/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 504, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'la' at line 1
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/alex/University/Technosphere/Python/Homework/3/orm.py", line 60, in execute
+    self.cursor.execute(string)
+  File "/home/alex/anaconda3/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 264, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "/home/alex/anaconda3/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 508, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'la' at line 1
+[INFO] 2020-11-03 09:50:06,250 - Connected to database
+[INFO] 2020-11-03 09:50:06,251 - Created new database 'mice'
+[INFO] 2020-11-03 09:50:06,253 - Connected to database
+[INFO] 2020-11-03 09:50:06,254 - Created new table 'dogs'
+[INFO] 2020-11-03 09:50:06,255 - Connected to database
+[INFO] 2020-11-03 09:50:26,590 - Connected to database
+[INFO] 2020-11-03 09:50:26,591 - Created new database 'mice'
+[INFO] 2020-11-03 09:50:26,591 - Created new database 'dogs'
+[INFO] 2020-11-03 09:50:26,593 - Connected to database
+[INFO] 2020-11-03 09:50:26,595 - Created new table 'dogs'
+[INFO] 2020-11-03 09:50:26,596 - Connected to database
+[INFO] 2020-11-03 10:02:44,130 - Connected to database
+[INFO] 2020-11-03 10:02:44,131 - Created new database 'mice'
+[INFO] 2020-11-03 10:02:44,131 - Created new database 'dogs'
+[INFO] 2020-11-03 10:02:44,132 - Connected to database
+[INFO] 2020-11-03 10:02:44,134 - Created new table 'dogs'
+[INFO] 2020-11-03 10:02:44,135 - Connected to database
+[INFO] 2020-11-03 10:03:43,162 - Connected to database
+[INFO] 2020-11-03 10:03:43,163 - Created new database 'mice'
+[INFO] 2020-11-03 10:03:43,164 - Created new database 'dogs'
+[INFO] 2020-11-03 10:03:43,164 - Connected to database
+[INFO] 2020-11-03 10:03:43,167 - Created new table 'dogs'
+[INFO] 2020-11-03 10:03:43,168 - Connected to database
+[INFO] 2020-11-03 10:31:59,307 - Connected to database
+[INFO] 2020-11-03 10:31:59,309 - Created new database 'mice'
+[INFO] 2020-11-03 10:31:59,309 - Created new database 'dogs'
+[INFO] 2020-11-03 10:31:59,310 - Connected to database
+[INFO] 2020-11-03 10:31:59,312 - Created new table 'dogs'
+[INFO] 2020-11-03 10:31:59,313 - Connected to database
+[INFO] 2020-11-03 10:32:20,899 - Connected to database
+[INFO] 2020-11-03 10:32:20,900 - Created new database 'mice'
+[INFO] 2020-11-03 10:32:20,901 - Created new database 'dogs'
+[INFO] 2020-11-03 10:32:20,901 - Connected to database
+[INFO] 2020-11-03 10:32:20,903 - Created new table 'dogs'
+[INFO] 2020-11-03 10:32:20,904 - Connected to database
+[INFO] 2020-11-03 10:32:30,216 - Connected to database
+[INFO] 2020-11-03 10:32:30,217 - Created new database 'mice'
+[INFO] 2020-11-03 10:32:30,217 - Created new database 'dogs'
+[INFO] 2020-11-03 10:32:30,218 - Connected to database
+[INFO] 2020-11-03 10:32:30,221 - Created new table 'dogs'
+[INFO] 2020-11-03 10:32:30,222 - Connected to database
+[INFO] 2020-11-03 12:16:38,717 - Connected to database
+[INFO] 2020-11-03 12:16:38,720 - Created new database 'mice'
+[INFO] 2020-11-03 12:16:38,720 - Created new database 'dogs'
+[INFO] 2020-11-03 12:16:38,722 - Connected to database
+[INFO] 2020-11-03 12:16:38,727 - Created new table 'dogs'
+[INFO] 2020-11-03 12:16:38,728 - Connected to database

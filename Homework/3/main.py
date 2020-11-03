@@ -10,5 +10,5 @@ class Dogs(SimpleBase):
     years = Column('years', Integer, True)
 
 
-a = Dogs.get(id=1)
-print(a[0].years)
+print(*(i.name for i in Dogs.all()))
+print(Dogs.connector.execute("la"))
