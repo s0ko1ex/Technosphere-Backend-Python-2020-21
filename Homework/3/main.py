@@ -1,14 +1,10 @@
 from orm import SimpleBase, Integer, Char, Column
 
 
-class Dogs(SimpleBase):
+class Dog(SimpleBase):
     __database__ = "pets"
     __table__ = "dogs"
 
-    name = Column('name', Char(255), True)
-    owner = Column('owner', Char(255), True)
-    years = Column('years', Integer, True)
-
-
-print(*(i.name for i in Dogs.all()))
-print(Dogs.connector.execute("la"))
+    name = Column(name='name', column_type=Char(255))
+    owner = Column(name='owner', column_type=Char(255))
+    years = Column(name='years', column_type=Integer)

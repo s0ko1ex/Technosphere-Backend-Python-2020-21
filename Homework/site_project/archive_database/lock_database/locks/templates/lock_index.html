@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<h1>Locks</h1>
+<div class="row">
+{% for lock in locks %}
+<div class="col-md-4">
+    <a href="{% url 'lock_detail' lock.id %}" class="no-decoration">
+        <div class="card mb-2">
+            <img class="card-img-top" src="{% static lock.image %}">
+            <div class="card-body">
+                <h5 class="card-title">{{ lock.name }}</h5>
+            </div>
+        </div>
+    </a>
+</div>
+{% endfor %}
+</div>
+{% endblock %}

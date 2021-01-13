@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Home {% endblock %}
+
+{% block block_navbar %}
+{% if authenticated %}
+<ul class="navbar-nav ml-auto">
+    <li class="nav-item active">
+        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+    </li>
+</ul>
+{% else %}
+<ul class="navbar-nav ml-auto">
+    <li class="nav-item active">
+        <a class="nav-link" href="{% url 'login' %}">Login</a>
+    </li>
+</ul>
+{% endif %}
+{% endblock %}
+
+{% block page_content %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<h1>Locks</h1>
+<div class="row">
+{% for lock in locks %}
+    <div class="col-md-4">
+        <a href="{% url 'lock_detail' lock.id %}" class="no-decoration">
+            <div class="card mb-2">
+
+                {% if lock.image_link %}
+                    <img class="card-img-top" src="{{ lock.image_link }}">
+                {% elif lock.image %}
+                    <img class="card-img-top" src="{% static lock.image %}">
+                {% else %}
+                    <img class="card-img-top">
+                {% endif %}
+                
+                <div class="card-body">
+                    <h5 class="card-title">{{ lock.name }}</h5>
+                </div>
+            </div>
+        </a>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}

@@ -1,12 +1,30 @@
-[INFO] 2020-11-03 10:04:00,114 - Connected to database
-[INFO] 2020-11-03 10:04:00,122 - Created new database 'mice'
-[INFO] 2020-11-03 10:04:00,123 - Created new database 'dogs'
-[INFO] 2020-11-03 10:04:00,127 - Connected to database
-[INFO] 2020-11-03 10:04:00,139 - Created new table 'dogs'
-[INFO] 2020-11-03 10:04:00,939 - Connected to database
-[INFO] 2020-11-03 12:14:16,774 - Connected to database
-[INFO] 2020-11-03 12:14:18,335 - Created new database 'mice'
-[INFO] 2020-11-03 12:14:20,840 - Created new database 'dogs'
-[INFO] 2020-11-03 12:14:21,763 - Connected to database
-[INFO] 2020-11-03 12:14:25,103 - Created new table 'dogs'
-[INFO] 2020-11-03 12:14:25,345 - Connected to database
+[INFO] 2020-11-10 16:53:27,202 - Connected to database
+[INFO] 2020-11-10 16:53:27,210 - Switched to database 'pets'
+[INFO] 2020-11-10 16:53:27,218 - Created new object with id=4 in table='{self.__table__}'
+[INFO] 2020-11-10 16:53:50,464 - Connected to database
+[INFO] 2020-11-10 16:53:50,472 - Switched to database 'pets'
+[INFO] 2020-11-10 16:56:03,637 - Created new object with id=4 in table='{self.__table__}'
+[INFO] 2020-11-10 16:57:46,427 - Connected to database
+[INFO] 2020-11-10 16:57:46,434 - Switched to database 'pets'
+[INFO] 2020-11-10 16:57:46,440 - Created new object with id=4 in table='{self.__table__}'
+[INFO] 2020-11-10 16:59:12,857 - Connected to database
+[INFO] 2020-11-10 16:59:12,865 - Switched to database 'pets'
+[INFO] 2020-11-10 16:59:14,024 - Created new object with id=4 in table='{self.__table__}'
+[INFO] 2020-11-10 17:00:20,472 - Connected to database
+[INFO] 2020-11-10 17:00:20,477 - Switched to database 'pets'
+[INFO] 2020-11-10 17:00:21,082 - Created new object with id=4 in table='{self.__table__}'
+[INFO] 2020-11-10 17:01:21,767 - Connected to database
+[INFO] 2020-11-10 17:01:21,776 - Switched to database 'pets'
+[INFO] 2020-11-10 17:01:22,704 - Created new object with id=4 in table='{self.__table__}'
+[INFO] 2020-11-10 17:02:39,521 - Connected to database
+[INFO] 2020-11-10 17:02:39,529 - Switched to database 'pets'
+[INFO] 2020-11-10 17:02:40,024 - Created new object with id=4 in table='{self.__table__}'
+[INFO] 2020-11-10 17:02:55,168 - Connected to database
+[INFO] 2020-11-10 17:02:55,176 - Switched to database 'pets'
+[INFO] 2020-11-10 17:02:55,654 - Created new object with id=4 in table='{self.__table__}'
+[INFO] 2020-11-10 17:04:13,843 - Connected to database
+[INFO] 2020-11-10 17:04:13,852 - Switched to database 'pets'
+[INFO] 2020-11-10 17:04:14,407 - Created new object with id=4 in table='{self.__table__}'
+[INFO] 2020-11-10 17:05:13,920 - Made call 'INSERT INTO dogs (id, name, owner, years) VALUES (4, 'Pup', 'Will', 4)' to MySQL
+[INFO] 2020-11-10 20:13:16,733 - Connected to database
+[INFO] 2020-11-10 20:13:27,422 - Switched to database 'pets'

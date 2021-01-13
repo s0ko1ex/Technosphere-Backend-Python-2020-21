@@ -1,0 +1,6 @@
+asgiref @ file:///home/conda/feedstock_root/build_artifacts/asgiref_1592528583041/work
+certifi==2020.11.8
+Django @ file:///home/conda/feedstock_root/build_artifacts/django_1604315001636/work
+djangorestframework @ file:///home/conda/feedstock_root/build_artifacts/djangorestframework_1601312268278/work
+pytz @ file:///home/conda/feedstock_root/build_artifacts/pytz_1604321279890/work
+sqlparse @ file:///home/conda/feedstock_root/build_artifacts/sqlparse_1602142927465/work

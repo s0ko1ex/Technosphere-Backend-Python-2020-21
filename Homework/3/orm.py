@@ -18,14 +18,20 @@ password = "nRZ3AfHZcmhdXrRp"
 
 class Column:
     def __init__(self, name=None, column_type=None,
-                 is_none=False, default=None):
+                 is_not_none=False, default=None):
         self.name = name
         self.column_type = column_type
-        self.is_none = is_none
+        self.is_not_none = is_not_none
         self.default = default
 
+    def __str__(self):
+        if self.is_not_none:
+            return self.column_type.sql_type + " NOT NULL"
+        else:
+            return self.column_type.sql_type
 
-class ORMConnector:
+
+class DBConnector:
     _instance = None
     cursor = None
 
@@ -44,7 +50,7 @@ class ORMConnector:
 
     def __new__(cls, *args, **kwargs):
         if cls._instance is None:
-            obj = super(ORMConnector, cls).__new__(cls)
+            obj = super(DBConnector, cls).__new__(cls)
 
             try:
                 obj.__init__(*args, **kwargs)
@@ -55,6 +61,7 @@ class ORMConnector:
 
         return cls._instance
 
+    # TODO: add insert, update and delete methods
     def execute(self, string: str) -> list:
         try:
             self.cursor.execute(string)
@@ -100,7 +107,8 @@ class ORMConnector:
         for (name, value) in cls.__dict__.items():
             if isinstance(value, Column):
                 names.append(value.name)
-                types.append(value.column_type.sql_type)
+
+                types.append(str(value))
 
         querry = f"CREATE TABLE {table}" +\
             f"({', '.join(i + ' ' + j for (i, j) in zip(names, types))})"
@@ -124,7 +132,7 @@ class MetaBase(type):
 
     def check_table(cls):
         if cls.connector is None:
-            cls.connector = ORMConnector(host, user, password)
+            cls.connector = DBConnector(host, user, password)
 
         new_id = None
         if cls.__database__ is not None:
@@ -138,10 +146,14 @@ class MetaBase(type):
 class SimpleBase(metaclass=MetaBase):
     __database__ = None
     __table__ = None
-    __created__: bool = False
-    connector: ORMConnector = None
+    connector: DBConnector = None
 
     def __init__(self, *args, **kwargs):
+        if self.__table__ is None:
+            self.__table__ = self.__class__.__name__
+        if self.__database__ is None:
+            self.__database__ = self.__table__
+
         new_id = self.__class__.check_table()
 
         if "id" not in kwargs:
@@ -169,7 +181,9 @@ class SimpleBase(metaclass=MetaBase):
         else:
             return super().__setattr__(key, value)
 
-    def create(self):
+    @classmethod
+    def create(cls, *args, **kwargs):
+        self = cls(*args, **kwargs)
         logging.info(f"Created new object with id={self.id} " +
                      "in table='{self.__table__}'")
         self.connector.check_db(self.__database__)
@@ -177,8 +191,8 @@ class SimpleBase(metaclass=MetaBase):
         columns: List[str] = ["id"]
         values: List[str] = [str(self.id)]
 
-        for name in self.__class__.__columns__:
-            value = super().__getattribute__(name)
+        for name in cls.__columns__:
+            value = cls.__dict__[name]
             columns.append(value.name)
             values.append(str(self.__getattribute__(name)))
 
@@ -187,6 +201,8 @@ class SimpleBase(metaclass=MetaBase):
 
         self.connector.execute(querry)
         self.connector.commit()
+
+        return self
 
     def update(self):
         logging.info(f"Updated object with id={self.id} " +
@@ -210,7 +226,7 @@ class SimpleBase(metaclass=MetaBase):
     def delete(self):
         logging.info(f"Deleted object with id={self.id} " +
                      "from table='{self.__table__}'")
-        querry = f" DELETE FROM {self.__table__} WHERE id={self.id}"
+        querry = f"DELETE FROM {self.__table__} WHERE id={self.id}"
         self.connector.execute(querry)
         self.connector.commit()
 
@@ -228,7 +244,7 @@ class SimpleBase(metaclass=MetaBase):
         return res
 
     @classmethod
-    def get(cls, **kwargs):
+    def filter(cls, **kwargs):
         cls.check_table()
 
         kwargs = [[str(el) for el in row] for row in kwargs.items()]
@@ -245,6 +261,10 @@ class SimpleBase(metaclass=MetaBase):
 
         return res
 
+    @classmethod
+    def get(cls, id):
+        return cls.filter(id=id)[0]
+
 
 class Integer(ColumnType):
     sql_type = "INT"
@@ -254,6 +274,15 @@ class Integer(ColumnType):
 
     def __str__(self):
         return str(self.value)
+
+    def __repr__(self):
+        return str(self)
+
+    def __set__(self, instance, value):
+        if isinstance(value, int):
+            self.value = value
+        else:
+            raise ValueError("Can only set type int")
 
 
 class Char(ColumnType):
@@ -277,3 +306,12 @@ class Char(ColumnType):
 
     def __str__(self):
         return f"'{self.value}'"
+
+    def __repr__(self):
+        return self.value
+
+    def __set__(self, instance, value):
+        if isinstance(value, str):
+            self.value = value
+        else:
+            raise ValueError("Can only set type str")

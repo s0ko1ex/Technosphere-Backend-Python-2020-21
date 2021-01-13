@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_content %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<h1>{{ lock.name }}</h1>
+<div class="row">
+    <div class="col-md-4">
+        <img src="{% static lock.image %}", alt="" width=100%>
+    </div>
+    <div class="col-md-8">
+        {% if lock.description %}
+            <p>{{ lock.description }}</p>
+        {% endif %}
+        <table class="table table-bordered">
+            <tr>
+                <td>Company</td>
+                {% if lock.company %}
+                    <td>{{ lock.company }}</td>
+                {% else %}
+                    <td>...</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>Model</td>
+                {% if lock.model %}
+                    <td>{{ lock.model }}</td>
+                {% else %}
+                    <td>...</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>Lock type</td>
+                {% if lock.lock_type %}
+                    <td>{{ lock.lock_type }}</td>
+                {% else %}
+                    <td>...</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>Core type</td>
+                {% if lock.core %}
+                    <td>{{ lock.core }}</td>
+                {% else %}
+                    <td>...</td>
+                {% endif %}
+            </tr>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

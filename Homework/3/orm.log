@@ -1,66 +1,59 @@
-[INFO] 2020-11-03 09:47:03,921 - Connected to database
-[INFO] 2020-11-03 09:47:03,922 - Switched to database 'pets'
-[INFO] 2020-11-03 09:47:03,924 - Made call 'SELECT * FROM dogs' to MySQL
-[ERROR] 2020-11-03 09:47:03,928 - Call 'la' to MySQL resulted in a failure!
-Traceback (most recent call last):
-  File "/home/alex/anaconda3/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 504, in cmd_query
-    self._cmysql.query(query,
-_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'la' at line 1
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/alex/University/Technosphere/Python/Homework/3/orm.py", line 60, in execute
-    self.cursor.execute(string)
-  File "/home/alex/anaconda3/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 264, in execute
-    result = self._cnx.cmd_query(stmt, raw=self._raw,
-  File "/home/alex/anaconda3/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 508, in cmd_query
-    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
-mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'la' at line 1
-[INFO] 2020-11-03 09:50:06,250 - Connected to database
-[INFO] 2020-11-03 09:50:06,251 - Created new database 'mice'
-[INFO] 2020-11-03 09:50:06,253 - Connected to database
-[INFO] 2020-11-03 09:50:06,254 - Created new table 'dogs'
-[INFO] 2020-11-03 09:50:06,255 - Connected to database
-[INFO] 2020-11-03 09:50:26,590 - Connected to database
-[INFO] 2020-11-03 09:50:26,591 - Created new database 'mice'
-[INFO] 2020-11-03 09:50:26,591 - Created new database 'dogs'
-[INFO] 2020-11-03 09:50:26,593 - Connected to database
-[INFO] 2020-11-03 09:50:26,595 - Created new table 'dogs'
-[INFO] 2020-11-03 09:50:26,596 - Connected to database
-[INFO] 2020-11-03 10:02:44,130 - Connected to database
-[INFO] 2020-11-03 10:02:44,131 - Created new database 'mice'
-[INFO] 2020-11-03 10:02:44,131 - Created new database 'dogs'
-[INFO] 2020-11-03 10:02:44,132 - Connected to database
-[INFO] 2020-11-03 10:02:44,134 - Created new table 'dogs'
-[INFO] 2020-11-03 10:02:44,135 - Connected to database
-[INFO] 2020-11-03 10:03:43,162 - Connected to database
-[INFO] 2020-11-03 10:03:43,163 - Created new database 'mice'
-[INFO] 2020-11-03 10:03:43,164 - Created new database 'dogs'
-[INFO] 2020-11-03 10:03:43,164 - Connected to database
-[INFO] 2020-11-03 10:03:43,167 - Created new table 'dogs'
-[INFO] 2020-11-03 10:03:43,168 - Connected to database
-[INFO] 2020-11-03 10:31:59,307 - Connected to database
-[INFO] 2020-11-03 10:31:59,309 - Created new database 'mice'
-[INFO] 2020-11-03 10:31:59,309 - Created new database 'dogs'
-[INFO] 2020-11-03 10:31:59,310 - Connected to database
-[INFO] 2020-11-03 10:31:59,312 - Created new table 'dogs'
-[INFO] 2020-11-03 10:31:59,313 - Connected to database
-[INFO] 2020-11-03 10:32:20,899 - Connected to database
-[INFO] 2020-11-03 10:32:20,900 - Created new database 'mice'
-[INFO] 2020-11-03 10:32:20,901 - Created new database 'dogs'
-[INFO] 2020-11-03 10:32:20,901 - Connected to database
-[INFO] 2020-11-03 10:32:20,903 - Created new table 'dogs'
-[INFO] 2020-11-03 10:32:20,904 - Connected to database
-[INFO] 2020-11-03 10:32:30,216 - Connected to database
-[INFO] 2020-11-03 10:32:30,217 - Created new database 'mice'
-[INFO] 2020-11-03 10:32:30,217 - Created new database 'dogs'
-[INFO] 2020-11-03 10:32:30,218 - Connected to database
-[INFO] 2020-11-03 10:32:30,221 - Created new table 'dogs'
-[INFO] 2020-11-03 10:32:30,222 - Connected to database
-[INFO] 2020-11-03 12:16:38,717 - Connected to database
-[INFO] 2020-11-03 12:16:38,720 - Created new database 'mice'
-[INFO] 2020-11-03 12:16:38,720 - Created new database 'dogs'
-[INFO] 2020-11-03 12:16:38,722 - Connected to database
-[INFO] 2020-11-03 12:16:38,727 - Created new table 'dogs'
-[INFO] 2020-11-03 12:16:38,728 - Connected to database
+[INFO] 2020-11-03 20:52:10,725 - Connected to database
+[INFO] 2020-11-03 20:52:10,727 - Switched to database 'pets'
+[INFO] 2020-11-03 20:52:10,729 - Made call 'SELECT * FROM dogs' to MySQL
+[INFO] 2020-11-03 20:55:26,660 - Connected to database
+[INFO] 2020-11-03 20:55:26,662 - Switched to database 'pets'
+[INFO] 2020-11-03 20:55:26,665 - Made call 'SELECT * FROM dogs' to MySQL
+[INFO] 2020-11-03 21:08:09,636 - Connected to database
+[INFO] 2020-11-03 21:08:09,637 - Switched to database 'pets'
+[INFO] 2020-11-03 21:08:42,845 - Created new object with id=3 in table='{self.__table__}'
+[INFO] 2020-11-03 21:08:42,847 - Made call 'INSERT INTO dogs (id, name, owner, years) VALUES (3, 'Jack', 'Sam', 5)' to MySQL
+[INFO] 2020-11-03 21:09:53,593 - Made call 'SELECT * FROM dogs' to MySQL
+[INFO] 2020-11-03 21:12:41,225 - Made call 'SELECT * FROM dogs WHERE id=1' to MySQL
+[INFO] 2020-11-03 21:13:47,024 - Deleted object with id=1 from table='{self.__table__}'
+[INFO] 2020-11-03 21:13:47,027 - Made call 'DELETE FROM dogs WHERE id=1' to MySQL
+[INFO] 2020-11-10 16:42:40,822 - Connected to database
+[INFO] 2020-11-10 16:42:40,825 - Switched to database 'pets'
+[INFO] 2020-11-10 16:42:40,830 - Made call 'SELECT * FROM dogs' to MySQL
+[INFO] 2020-11-10 16:42:46,245 - Made call 'SELECT * FROM dogs' to MySQL
+[INFO] 2020-11-10 16:47:31,560 - Connected to database
+[INFO] 2020-11-10 16:47:31,563 - Switched to database 'pets'
+[INFO] 2020-11-10 16:47:31,568 - Made call 'SELECT * FROM dogs' to MySQL
+[INFO] 2020-11-10 16:50:29,031 - Connected to database
+[INFO] 2020-11-10 16:50:29,034 - Switched to database 'pets'
+[INFO] 2020-11-10 16:50:29,038 - Created new object with id=4 in table='{self.__table__}'
+[INFO] 2020-11-10 20:08:18,082 - Connected to database
+[INFO] 2020-11-10 20:08:18,087 - Switched to database 'pets'
+[INFO] 2020-11-10 20:08:18,100 - Made call 'SELECT * FROM dogs' to MySQL
+[INFO] 2020-11-10 20:08:30,236 - Made call 'SELECT * FROM dogs' to MySQL
+[INFO] 2020-11-10 20:08:41,835 - Deleted object with id=2 from table='{self.__table__}'
+[INFO] 2020-11-10 20:08:41,836 - Made call 'DELETE FROM dogs WHERE id=2' to MySQL
+[INFO] 2020-11-10 20:08:45,145 - Deleted object with id=3 from table='{self.__table__}'
+[INFO] 2020-11-10 20:08:45,146 - Made call 'DELETE FROM dogs WHERE id=3' to MySQL
+[INFO] 2020-11-10 20:08:49,055 - Deleted object with id=4 from table='{self.__table__}'
+[INFO] 2020-11-10 20:08:49,097 - Made call 'DELETE FROM dogs WHERE id=4' to MySQL
+[INFO] 2020-11-10 20:08:52,909 - Made call 'SELECT * FROM dogs' to MySQL
+[INFO] 2020-11-10 20:11:19,118 - Connected to database
+[INFO] 2020-11-10 20:11:19,120 - Switched to database 'pets'
+[INFO] 2020-11-10 20:11:27,470 - Created new table 'dogs'
+[INFO] 2020-11-10 20:11:27,473 - Made call 'SELECT * FROM dogs' to MySQL
+[INFO] 2020-11-10 20:15:46,257 - Connected to database
+[INFO] 2020-11-10 20:15:46,258 - Switched to database 'pets'
+[INFO] 2020-11-10 20:16:55,201 - Connected to database
+[INFO] 2020-11-10 20:16:55,204 - Switched to database 'pets'
+[INFO] 2020-11-10 20:17:03,411 - Created new table 'dogs'
+[INFO] 2020-11-10 20:17:03,413 - Made call 'SELECT * FROM dogs' to MySQL
+[INFO] 2020-11-10 20:17:05,866 - Made call 'SELECT * FROM dogs' to MySQL
+[INFO] 2020-11-10 20:18:04,911 - Connected to database
+[INFO] 2020-11-10 20:18:04,913 - Switched to database 'pets'
+[INFO] 2020-11-10 20:18:04,916 - Made call 'SELECT * FROM dogs' to MySQL
+[INFO] 2020-11-10 20:18:24,382 - Connected to database
+[INFO] 2020-11-10 20:18:24,384 - Switched to database 'pets'
+[INFO] 2020-11-10 20:18:30,717 - Created new table 'dogs'
+[INFO] 2020-11-10 20:18:30,719 - Made call 'SELECT * FROM dogs' to MySQL
+[INFO] 2020-11-10 20:18:33,103 - Made call 'SELECT * FROM dogs' to MySQL
+[INFO] 2020-11-10 20:35:21,949 - Connected to database
+[INFO] 2020-11-10 20:35:21,952 - Switched to database 'pets'
+[INFO] 2020-11-10 20:35:21,955 - Made call 'SELECT * FROM dogs' to MySQL
+[INFO] 2020-11-10 20:36:04,216 - Created new object with id=1 in table='{self.__table__}'
+[INFO] 2020-11-10 20:36:04,218 - Made call 'INSERT INTO dogs (id, name, owner, years) VALUES (1, 'Bob', 'Sam', 5)' to MySQL

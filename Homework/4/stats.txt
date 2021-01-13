@@ -1,0 +1,201 @@
+                     Call and time stats
+--------------------------------------------------------------
+
+n = 1
+-------
+Naive implementation
+--------------------         2 function calls in 0.000 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.000    0.000 /home/alex/University/Technosphere/Python/Homework/4/staircase.py:1(naive_climb_stairs)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+
+Normal implementation
+---------------------         2 function calls in 0.000 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.000    0.000 /home/alex/University/Technosphere/Python/Homework/4/staircase.py:8(normal_climb_stairs)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+
+ 
+
+n = 8
+-------
+Naive implementation
+--------------------         68 function calls (2 primitive calls) in 0.000 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+     67/1    0.000    0.000    0.000    0.000 /home/alex/University/Technosphere/Python/Homework/4/staircase.py:1(naive_climb_stairs)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+
+Normal implementation
+---------------------         2 function calls in 0.000 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.000    0.000 /home/alex/University/Technosphere/Python/Homework/4/staircase.py:8(normal_climb_stairs)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+
+ 
+
+n = 20
+-------
+Naive implementation
+--------------------         21892 function calls (2 primitive calls) in 0.005 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+  21891/1    0.005    0.000    0.005    0.005 /home/alex/University/Technosphere/Python/Homework/4/staircase.py:1(naive_climb_stairs)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+
+Normal implementation
+---------------------         2 function calls in 0.000 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.000    0.000 /home/alex/University/Technosphere/Python/Homework/4/staircase.py:8(normal_climb_stairs)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+
+ 
+
+n = 34
+-------
+Naive implementation
+--------------------         18454930 function calls (2 primitive calls) in 4.090 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+18454929/1    4.090    0.000    4.090    4.090 /home/alex/University/Technosphere/Python/Homework/4/staircase.py:1(naive_climb_stairs)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+
+Normal implementation
+---------------------         2 function calls in 0.000 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.000    0.000 /home/alex/University/Technosphere/Python/Homework/4/staircase.py:8(normal_climb_stairs)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+
+ 
+
+                        Memory stats
+--------------------------------------------------------------
+n = 1
+-------
+Naive implementation
+--------------------
+Filename: memory_test.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+     7  39.1055 MiB  39.1055 MiB           1   @profile(precision=4)
+     8                                         def naive_call(n: int) -> int:
+     9  39.1055 MiB   0.0000 MiB           1       naive_climb_stairs(n)
+
+
+Normal implementation
+---------------------
+Filename: memory_test.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+    12  39.1055 MiB  39.1055 MiB           1   @profile(precision=4)
+    13                                         def normal_call(n: int) -> int:
+    14  39.1055 MiB   0.0000 MiB           1       normal_climb_stairs(n)
+
+
+
+n = 8
+-------
+Naive implementation
+--------------------
+Filename: memory_test.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+     7  39.1055 MiB  39.1055 MiB           1   @profile(precision=4)
+     8                                         def naive_call(n: int) -> int:
+     9  39.1055 MiB   0.0000 MiB           1       naive_climb_stairs(n)
+
+
+Normal implementation
+---------------------
+Filename: memory_test.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+    12  39.1055 MiB  39.1055 MiB           1   @profile(precision=4)
+    13                                         def normal_call(n: int) -> int:
+    14  39.1055 MiB   0.0000 MiB           1       normal_climb_stairs(n)
+
+
+
+n = 20
+-------
+Naive implementation
+--------------------
+Filename: memory_test.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+     7  39.1055 MiB  39.1055 MiB           1   @profile(precision=4)
+     8                                         def naive_call(n: int) -> int:
+     9  39.1055 MiB   0.0000 MiB           1       naive_climb_stairs(n)
+
+
+Normal implementation
+---------------------
+Filename: memory_test.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+    12  39.1055 MiB  39.1055 MiB           1   @profile(precision=4)
+    13                                         def normal_call(n: int) -> int:
+    14  39.1055 MiB   0.0000 MiB           1       normal_climb_stairs(n)
+
+
+
+n = 34
+-------
+Naive implementation
+--------------------
+Filename: memory_test.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+     7  39.1055 MiB  39.1055 MiB           1   @profile(precision=4)
+     8                                         def naive_call(n: int) -> int:
+     9  39.1055 MiB   0.0000 MiB           1       naive_climb_stairs(n)
+
+
+Normal implementation
+---------------------
+Filename: memory_test.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+    12  39.1055 MiB  39.1055 MiB           1   @profile(precision=4)
+    13                                         def normal_call(n: int) -> int:
+    14  39.1055 MiB   0.0000 MiB           1       normal_climb_stairs(n)
+
+
+
